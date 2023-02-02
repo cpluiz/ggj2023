@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3125791080161647633}
   - component: {fileID: 5136298016024357109}
+  - component: {fileID: 1022588641643662995}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -44,12 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21d37dc42b60184397d7c001caceecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1022588641643662995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125791080161647635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4276954a9fe3bd4aa082cff017d5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   followPlayer: 0
   aggroRange: 50
-  turnSpeed: 2
-  moveSpeed: 1.5
+  turnSpeed: 1
+  moveSpeed: 2
   lookAt: {x: 0, y: 0, z: 0}
-  targetDirection: {x: 0, y: 0, z: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &6150090839941210143
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 
     protected void DefaultMovement(){
         // Se o inimigo já estiver próximo ao ponto alvo da movimentação atual, mude o alvo
-        while(Mathf.Approximately(Vector3.Distance(targetPoint, transform.position), 5f)){ChangeDirection();}; 
+        while(Mathf.Approximately(Vector3.Distance(targetPoint, transform.position), 10f)){ChangeDirection();}; 
         lookAt = targetPoint - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed/2 * Time.deltaTime);
     }
@@ -55,9 +55,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChangeDirection(){
         targetPoint = Vector3.forward + new Vector3(
-            Random.Range(transform.position.x - turnSpeed * 5, transform.position.x + turnSpeed * 5), // target X
+            Random.Range(transform.position.x - turnSpeed * 30, transform.position.x + turnSpeed * 30), // target X
             0, // target Y
-            Random.Range(transform.position.z - turnSpeed * 5, transform.position.z + turnSpeed * 5) // target Z
+            Random.Range(transform.position.z - turnSpeed * 30, transform.position.z + turnSpeed * 30) // target Z
         );
     }
 }

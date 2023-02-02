@@ -168,10 +168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab:
   - {fileID: 5136298016024357109, guid: c85fe656055cb544290054e1ea4eb415, type: 3}
-  spawnInterval: 5
-  spawnIntervalRandomRange: 1.25
+  spawnInterval: 30
+  spawnIntervalRandomRange: 5
   spawnContinuously: 1
-  spawnLimit: 1
+  spawnLimit: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 16
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!114 &1101026893
 MonoBehaviour:

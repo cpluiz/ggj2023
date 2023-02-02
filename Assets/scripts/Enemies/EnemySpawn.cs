@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public Enemy[] enemyPrefab;
-    [Range(3f, 5f)]
+    [Range(10f, 60f)]
     public float spawnInterval = 0.1f;
-    [Range(0.1f, 2.5f)]
+    [Range(1f, 5.5f)]
     public float spawnIntervalRandomRange = 0.1f;
     public bool spawnContinuously;
     [Range(1, 2000)]
