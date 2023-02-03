@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 5136298016024357109, guid: c85fe656055cb544290054e1ea4eb415, type: 3}
+  - {fileID: 3936985576404507342, guid: 4408336cf62bdd64a973ca16f5da1f53, type: 3}
   spawnInterval: 30
   spawnIntervalRandomRange: 5
   spawnContinuously: 1
@@ -636,7 +636,7 @@ Transform:
   m_GameObject: {fileID: 1360062079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5838089, y: -1.8219464, z: 1.1667}
-  m_LocalScale: {x: 149.3838, y: 0.1711036, z: 121.12699}
+  m_LocalScale: {x: 300, y: 0.1711036, z: 200}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
