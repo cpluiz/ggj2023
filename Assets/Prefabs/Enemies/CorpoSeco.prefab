@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5991849701513294238}
-  - component: {fileID: 3327982016081721542}
   - component: {fileID: 3936985576404507342}
+  - component: {fileID: -2449910056276337193}
   m_Layer: 0
   m_Name: CorpoSeco
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3327982016081721542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8425829685107289484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4276954a9fe3bd4aa082cff017d5397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followPlayer: 0
-  aggroRange: 30
-  turnSpeed: 1
-  moveSpeed: 1.7
-  lookAt: {x: 0, y: 0, z: 0}
-  targetPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &3936985576404507342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21d37dc42b60184397d7c001caceecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2449910056276337193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425829685107289484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fa9cd90383c7149a2e243e895f2f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followPlayer: 0
+  aggroRange: 30
+  turnSpeed: 1
+  moveSpeed: 1.7
+  lookAt: {x: 0, y: 0, z: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4089745825534683196
 PrefabInstance:
   m_ObjectHideFlags: 0
