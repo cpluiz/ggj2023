@@ -23,7 +23,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -34,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 5
+    globalScale: 5.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -77,7 +77,192 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: mao_do_submundo(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_do_submundo
+      parentName: mao_do_submundo(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Armature
+      parentName: mao_do_submundo(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: mao_submundo_bone_base
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.57037884, y: 0.55251724, z: 0.44558585, w: 0.41333517}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1.0000004}
+    - name: mao_submundo_bone_01
+      parentName: mao_submundo_bone_base
+      position: {x: -0, y: 0.00026568107, z: -1.6167174e-11}
+      rotation: {x: -0.9948101, y: 0.021306187, z: -0.025641233, w: -0.09613322}
+      scale: {x: 1.0000004, y: 0.9999994, z: 1.0000008}
+    - name: mao_submundo_bone_02
+      parentName: mao_submundo_bone_01
+      position: {x: 1.5366821e-12, y: 0.0003326314, z: 1.581502e-11}
+      rotation: {x: -0.00097455666, y: -0.9455792, z: -0.3247982, w: 0.019625386}
+      scale: {x: 1.0000011, y: 0.9999989, z: 1.0000007}
+    - name: mao_submundo_bone_02_end
+      parentName: mao_submundo_bone_02
+      position: {x: -0, y: 0.00033495788, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pole_a
+      parentName: Armature
+      position: {x: 0.0002777083, y: -0.0000126883015, z: 0.0002560909}
+      rotation: {x: 0.6123724, y: -0.35355338, z: -0.35355332, w: 0.6123725}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: pole_a_end
+      parentName: pole_a
+      position: {x: -0, y: 0.0000922939, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pole_b
+      parentName: Armature
+      position: {x: -0.0002652442, y: -0.000009247174, z: 0.00056030834}
+      rotation: {x: 0.6123724, y: -0.35355338, z: -0.35355332, w: 0.6123725}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: pole_b_end
+      parentName: pole_b
+      position: {x: -0, y: 0.000087522385, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_mao.001
+      parentName: Armature
+      position: {x: 0.000016673946, y: 0.00008849505, z: 0.0007776831}
+      rotation: {x: 0.004711327, y: 0.60036534, z: 0.7996677, w: 0.008411194}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000004}
+    - name: mao_submundo_bone_dedo_e_00
+      parentName: mao_submundo_bone_mao.001
+      position: {x: -0.000044716056, y: 0.00003960232, z: 0.000004231203}
+      rotation: {x: -0.30274206, y: -0.36486068, z: 0.7648298, w: 0.4361872}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
+    - name: mao_submundo_bone_dedo_e_01
+      parentName: mao_submundo_bone_dedo_e_00
+      position: {x: -1.2293457e-11, y: 0.000068809146, z: 5.88101e-11}
+      rotation: {x: -0.45366275, y: -0.057533085, z: -0.28079718, w: 0.8438205}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.9999998}
+    - name: mao_submundo_bone_dedo_e_01_end
+      parentName: mao_submundo_bone_dedo_e_01
+      position: {x: -0, y: 0.00014919906, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_mao
+      parentName: mao_submundo_bone_mao.001
+      position: {x: 4.0209842e-11, y: -4.0834124e-11, z: -7.171183e-11}
+      rotation: {x: -0.000000064985215, y: -0.0000215373, z: 0.000000010477379, w: 1}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000002}
+    - name: mao_submundo_bone_mao_end
+      parentName: mao_submundo_bone_mao
+      position: {x: -0, y: 0.00008116736, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_dedo_d_00
+      parentName: mao_submundo_bone_mao.001
+      position: {x: -0.00004747132, y: 0.00012444641, z: -0.000002961336}
+      rotation: {x: -0.19678864, y: 0.1532261, z: 0.58518374, w: 0.77159315}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: mao_submundo_bone_dedo_d_01
+      parentName: mao_submundo_bone_dedo_d_00
+      position: {x: -3.6880367e-11, y: 0.00008486649, z: 1.2293457e-11}
+      rotation: {x: -0.03552429, y: 0.09097099, z: 0.13258992, w: 0.9863479}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.99999964}
+    - name: mao_submundo_bone_dedo_d_02
+      parentName: mao_submundo_bone_dedo_d_01
+      position: {x: -2.0489095e-11, y: 0.000049476363, z: -1.7415732e-11}
+      rotation: {x: 0.0011402367, y: -0.06026303, z: 0.010135341, w: 0.9981304}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: mao_submundo_bone_dedo_d_02_end
+      parentName: mao_submundo_bone_dedo_d_02
+      position: {x: -0, y: 0.000083056104, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_dedo_c_00
+      parentName: mao_submundo_bone_mao.001
+      position: {x: -0.00001267241, y: 0.00013913502, z: -0.000006245442}
+      rotation: {x: -0.30501246, y: -0.036401168, z: 0.031615432, w: 0.9511271}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000001}
+    - name: mao_submundo_bone_dedo_c_01
+      parentName: mao_submundo_bone_dedo_c_00
+      position: {x: -3.1758093e-11, y: 0.0000964574, z: 3.995373e-11}
+      rotation: {x: -0.27426365, y: 0.074352, z: 0.0018480048, w: 0.95877415}
+      scale: {x: 0.9999997, y: 0.9999999, z: 0.9999998}
+    - name: mao_submundo_bone_dedo_c_02
+      parentName: mao_submundo_bone_dedo_c_01
+      position: {x: 6.1467285e-12, y: 0.000057313584, z: 4.610046e-11}
+      rotation: {x: -0.36006242, y: 0.19376945, z: -0.07687314, w: 0.9093399}
+      scale: {x: 1, y: 0.9999997, z: 0.99999994}
+    - name: mao_submundo_bone_dedo_c_02_end
+      parentName: mao_submundo_bone_dedo_c_02
+      position: {x: -0, y: 0.00010013578, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_dedo_b_00
+      parentName: mao_submundo_bone_mao.001
+      position: {x: 0.000029856308, y: 0.00013245008, z: -0.0000040823243}
+      rotation: {x: -0.08452662, y: -0.059095345, z: -0.084391184, w: 0.99108076}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000004}
+    - name: mao_submundo_bone_dedo_b_01
+      parentName: mao_submundo_bone_dedo_b_00
+      position: {x: -1.9848808e-12, y: 0.00009139559, z: 7.632188e-11}
+      rotation: {x: -0.29011098, y: -0.031436518, z: -0.012810907, w: 0.95639074}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000006}
+    - name: mao_submundo_bone_dedo_b_02
+      parentName: mao_submundo_bone_dedo_b_01
+      position: {x: 6.1467285e-12, y: 0.0000484214, z: 2.5611368e-12}
+      rotation: {x: -0.3673457, y: -0.0812894, z: 0.038466625, w: 0.9257265}
+      scale: {x: 1.0000008, y: 0.99999994, z: 1.0000007}
+    - name: mao_submundo_bone_dedo_b_02_end
+      parentName: mao_submundo_bone_dedo_b_02
+      position: {x: -0, y: 0.000072835755, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_dedo_a_00
+      parentName: mao_submundo_bone_mao.001
+      position: {x: 0.000058452235, y: 0.0000977866, z: 0.000003313074}
+      rotation: {x: -0.24570046, y: -0.18245965, z: -0.5538835, w: 0.7743081}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000005}
+    - name: mao_submundo_bone_dedo_a_01
+      parentName: mao_submundo_bone_dedo_a_00
+      position: {x: -4.5076005e-11, y: 0.00006835161, z: 5.29515e-11}
+      rotation: {x: -0.041080195, y: -0.056151316, z: -0.1360223, w: 0.9882598}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1.0000001}
+    - name: mao_submundo_bone_dedo_a_02
+      parentName: mao_submundo_bone_dedo_a_01
+      position: {x: -1.6391275e-11, y: 0.000035225883, z: 0}
+      rotation: {x: -0.0006481108, y: 0.03550769, z: -0.015972145, w: 0.99924153}
+      scale: {x: 1.0000002, y: 1, z: 1.0000005}
+    - name: mao_submundo_bone_dedo_a_02_end
+      parentName: mao_submundo_bone_dedo_a_02
+      position: {x: -0, y: 0.000082590625, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_mao.004
+      parentName: Armature
+      position: {x: 0.0000901275, y: -0.000002644221, z: 0.00024120783}
+      rotation: {x: 0.6123724, y: -0.35355338, z: -0.35355332, w: 0.6123725}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: mao_submundo_bone_mao.004_end
+      parentName: mao_submundo_bone_mao.004
+      position: {x: -0, y: 0.00015888033, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mao_submundo_bone_Root
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.6123724, y: -0.35355338, z: -0.35355332, w: 0.6123725}
+      scale: {x: 0.99999994, y: 0.99999976, z: 1}
+    - name: mao_submundo_bone_Root_end
+      parentName: mao_submundo_bone_Root
+      position: {x: -0, y: 0.00002780542, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -85,16 +270,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.049999997
-    rootMotionBoneName: 
+    globalScale: 0.055
+    rootMotionBoneName: mao_submundo_bone_Root
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

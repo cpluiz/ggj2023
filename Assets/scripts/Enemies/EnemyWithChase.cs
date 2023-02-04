@@ -11,7 +11,7 @@ public class EnemyWithChase : EnemyMovement{
 
     new protected void Update(){
         base.Update();
-        MoveEnemy();
+        base.MoveEnemy();
     }
 
     private void ChangeDirection(){

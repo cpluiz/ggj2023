@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] protected bool followPlayer;
+    [SerializeField] protected bool followPlayer, cannotMove;
     [Range(20, 500)]
     public float aggroRange;
     [Range(0.1f, 4f)]
@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     protected void MoveEnemy(){
+        if(cannotMove) return;
         transform.position += transform.forward * Time.deltaTime * moveSpeed;    
     }
 
@@ -38,5 +39,13 @@ public class EnemyMovement : MonoBehaviour
     protected void FollowPlayerMovement(){
         lookAt = GameManager.instance.PlayerRef.transform.position - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed * Time.deltaTime);
+    }
+
+    public void StopMovement(){
+        cannotMove = true;
+    }
+
+    public void ResumeMovement(){
+        cannotMove = false;
     }
 }
