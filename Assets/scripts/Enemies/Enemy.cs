@@ -27,8 +27,9 @@ public class Enemy : MonoBehaviour{
     }
 
     void LateUpdate(){
-        AttackPlayer();
-        enemyAnimator.SetBool("walking", !enemyMovement.stationary);
+        enemyAnimator.SetBool("attacking", AttackPlayer());
+         if(HasParameter("walking", enemyAnimator))
+            enemyAnimator.SetBool("walking", !enemyMovement.stationary);
     }
 
     protected IEnumerator ReenableAttack(){
@@ -41,26 +42,30 @@ public class Enemy : MonoBehaviour{
         attack = false;
     }
 
-    protected void AttackPlayer(){
+    protected bool AttackPlayer(){
         //Se foi detectado que o jogador está na distância de ataque, mas o ataque ainda não iniciou,
         //prepara os paranauês
         if(attack && !isAttacking){
             enemyMovement.StopMovement();
-            enemyAnimator.SetBool("attacking", true);
             isAttacking = true;
-            return;
+            return true;
         }
         if(isAttacking){
             //Se a animação atual ainda é a de ataque, sai da função sem fazer nada.
             stateInfo = enemyAnimator.GetCurrentAnimatorStateInfo(0);
             nextStateInfo = enemyAnimator.GetNextAnimatorStateInfo(0);
-            if(
-                stateInfo.IsName("Attack") || nextStateInfo.IsName("Attack")
-            ) return;
+            if(stateInfo.IsName("Attack") || nextStateInfo.IsName("Attack")) return true;
             //Se a animação atual não é mais ataque, a animação de ataque já acabou, pode seguir o baile
-            enemyAnimator.SetBool("attacking", false);
             enemyMovement.ResumeMovement();
             StartCoroutine(nameof(ReenableAttack));
         }
+        return false;
+    }
+
+    private bool HasParameter(string paramName, Animator animator){
+        foreach (AnimatorControllerParameter param in animator.parameters)
+            if (param.name == paramName)
+                return true;
+        return false;
     }
 }
