@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 [DisallowMultipleComponent]
 public class EnemyWithChase : EnemyMovement{
+
+    [SerializeField] private int probability;
     new void Awake(){
         base.Awake();
         ChangeDirection();
@@ -24,9 +26,11 @@ public class EnemyWithChase : EnemyMovement{
 
     protected IEnumerator MaybeChangeDirection(){
         yield return new WaitForSeconds(Random.Range(2, 5));
-        if(Random.Range(0, 101) > 30){
+        probability = Random.Range(0, 101);
+        if(probability > 70){
             ChangeDirection();
         }
+        stationary = probability < 30 ? true : false;
         StartCoroutine(nameof(MaybeChangeDirection));
     }
 }

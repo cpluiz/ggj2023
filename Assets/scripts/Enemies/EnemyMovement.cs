@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] protected bool followPlayer, cannotMove;
+    public bool stationary{get;protected set;}
     [Range(20, 500)]
     public float aggroRange;
     [Range(0.1f, 4f)]
@@ -27,25 +28,31 @@ public class EnemyMovement : MonoBehaviour
     }
 
     protected void MoveEnemy(){
-        if(cannotMove) return;
+        if(cannotMove || stationary) return;
         transform.position += transform.forward * Time.deltaTime * moveSpeed;    
     }
 
     protected void DefaultMovement(){
+        if(cannotMove) return;
         lookAt = targetPoint - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed/2 * Time.deltaTime);
     }
 
     protected void FollowPlayerMovement(){
+        if(cannotMove) return;
         lookAt = GameManager.instance.PlayerRef.transform.position - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), turnSpeed * Time.deltaTime);
     }
 
     public void StopMovement(){
+        if(cannotMove) return;
+        Debug.Log("Teoricamente era pra essa bagaça parar de andar");
         cannotMove = true;
     }
 
     public void ResumeMovement(){
+        if(!cannotMove) return;
+        Debug.Log("Teoricamente só liberou pra voltar a andar agora");
         cannotMove = false;
     }
 }

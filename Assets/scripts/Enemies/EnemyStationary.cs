@@ -7,6 +7,7 @@ public class EnemyStationary : EnemyMovement{
     new void Awake(){
         base.Awake();
         ChangeDirection();
+        //Não alterar a variável stationary para esse inimigo
     }
 
     new protected void Update(){
