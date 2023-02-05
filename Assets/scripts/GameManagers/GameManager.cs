@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     }
     void Start(){
         UpdatePlayerRef();
+        UpdateFollowCamRef();
     }
 
     public static void UpdatePlayerRef(){
