@@ -16,10 +16,9 @@ public class TopDownCAM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, velocidade*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, target.position + offset, velocidade * Time.deltaTime);
 
-        if (LookAt)
-        { 
+        if (LookAt){ 
             transform.LookAt(target.position);
         }
 
