@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager instance{get{return _instance;}}
     //TODO Alterar para script do tipo do player, quando houver
-    public GameObject PlayerRef;
+    public PlayerController PlayerRef;
     public TopDownCAM FollowCamRef;
     void Awake(){
         if(_instance == null){
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     public static void UpdatePlayerRef(){
-        _instance.PlayerRef = GameObject.FindGameObjectWithTag("Player");
+        _instance.PlayerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
     public static void UpdateFollowCamRef(){
         _instance.FollowCamRef = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TopDownCAM>();

@@ -23,4 +23,15 @@ public class PlayerController : MonoBehaviour{
     public static void SetAnimationParam(string parameter, float value){
         _instance.animController.SetAnimationParam(parameter, value);
     }
+
+    public void ApplyStunAttack(Transform stunLocation, Transform enemyLocation){
+        _instance.movmentController.ReceiveStunAttack(stunLocation, enemyLocation);
+    }
+
+    public void UnlockStun(){
+        _instance.movmentController.RecoverFromStun();
+    }
+
+    public void ApplyKnockback(float force, Transform lookAt){
+        _instance.movmentController.ApplyKnockback(force, lookAt);    }
 }

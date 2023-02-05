@@ -12,6 +12,10 @@ public class CharacterMovement : MonoBehaviour
     public float turnVelocity = 20f;
     private float x,y;
     private bool isRunning;
+    [SerializeField]
+    private bool isStuned;
+    [SerializeField]
+    private Transform stunnedPosition, stunnedLookAt;
 
     // Update is called once per frame
     void Update(){
@@ -21,13 +25,23 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(y!=0)transform.Rotate(Vector3.up * turnVelocity * Time.deltaTime * y);
+        if(isStuned){
+            transform.position = stunnedPosition.position;
+            transform.LookAt(stunnedLookAt, Vector3.up);
+            return;
+        };
+        if(y!=0)transform.Rotate(Vector3.up * turnVelocity * Time.deltaTime * y * (isRunning ? runScale : 1));
         if(x!=0){
             PlayerController.instance.rigidBody.velocity = PlayerController.instance.transform.forward * x * velocity;
             if(isRunning) PlayerController.instance.rigidBody.velocity *= runScale;
         }
     }
     void LateUpdate(){
+        if(isStuned){
+            PlayerController.SetAnimationParam("walking", false);
+            return;
+        }
+        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
         PlayerController.SetAnimationParam("walking", x!=0 || y!=0);
         PlayerController.SetAnimationParam("running", isRunning);
         PlayerController.SetAnimationParam("walkSpeed", 0);
@@ -38,6 +52,23 @@ public class CharacterMovement : MonoBehaviour
             PlayerController.SetAnimationParam("walkSpeed", x);
             PlayerController.instance.rigidBody.velocity = PlayerController.instance.transform.forward * (x * velocity);
         }
+    }
+
+    public void ReceiveStunAttack(Transform stunPosition, Transform lookAt){
+        //TODO Aplicar dano ao personagem aqui
+        stunnedPosition = stunPosition;
+        stunnedLookAt = lookAt;
+        isStuned = true;
+    }
+
+    public void RecoverFromStun(){
+        isStuned = false;
+    }
+
+    public void ApplyKnockback(float force, Transform lookAt){
+        stunnedLookAt = lookAt;
+        transform.LookAt(stunnedLookAt, Vector3.up);
+        PlayerController.instance.rigidBody.AddForce(Vector3.back * force * 10, ForceMode.Impulse);
     }
 
 }

@@ -9,11 +9,13 @@ public class TopDownCAM : MonoBehaviour
     public Transform target;
     Vector3 mousePos;
     public Vector3 offset = Vector3.up;
+    private Vector3 originalOffset;
     public Camera cam;
     public bool LookAt = false;
 
     void Start(){
         target = GameManager.instance.PlayerRef.transform;
+        originalOffset = offset;
     }
 
     // Update is called once per frame
@@ -27,5 +29,11 @@ public class TopDownCAM : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    
+    public void ChangeCamera(Vector3 newOffset){
+        offset = newOffset;
+    }
+
+    public void RestoreCamera(){
+        offset = originalOffset;
+    }
 }

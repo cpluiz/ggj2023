@@ -4,14 +4,20 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 
 public class Enemy : MonoBehaviour{
-    [SerializeField] Animator enemyAnimator;
+    [Header("Configurações básicas do inimigo")]
     [SerializeField] EnemyMovement enemyMovement;
     [Range(0.5f, 40)]
     public float attackRange;
     [Range(1f,5f)]
     public float attackInterval;
+    [SerializeField] bool stunAttack;
+    [SerializeField] protected Transform stunLocation;
+    [SerializeField] bool knockbackAttack;
+    [SerializeField] [Range(0.5f, 10f)] protected float knockbackForce;
+    [Header("Referências e variáveis de acompanhamento")]
+    [SerializeField] Animator enemyAnimator;
     [SerializeField]
-    private bool attack, isAttacking;
+    private bool attack, isAttacking, stunnedPlayer;
     private AnimatorStateInfo stateInfo, nextStateInfo;
 
     void Awake(){
@@ -27,6 +33,7 @@ public class Enemy : MonoBehaviour{
     }
 
     void LateUpdate(){
+        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
         enemyAnimator.SetBool("attacking", AttackPlayer());
          if(HasParameter("walking", enemyAnimator))
             enemyAnimator.SetBool("walking", !enemyMovement.stationary);
@@ -37,6 +44,10 @@ public class Enemy : MonoBehaviour{
         //ABORTAR MISSÃO
         if(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1f) yield return null;
         //Caso contrário, aguarde o intervalo entre ataques para habilitar o próximo
+        if(stunnedPlayer){
+            GameManager.instance.PlayerRef.UnlockStun();
+            stunnedPlayer = false;
+        }
         yield return new WaitForSeconds(attackInterval);
         isAttacking = false;
         attack = false;
@@ -47,6 +58,7 @@ public class Enemy : MonoBehaviour{
         //prepara os paranauês
         if(attack && !isAttacking){
             enemyMovement.StopMovement();
+            StopAllCoroutines();
             isAttacking = true;
             return true;
         }
@@ -67,5 +79,25 @@ public class Enemy : MonoBehaviour{
             if (param.name == paramName)
                 return true;
         return false;
+    }
+    private void OnTriggerEnter(Collider other){
+        Debug.Log(other.gameObject.name);
+    }
+    private void OnTriggerStay(Collider other){
+        Debug.Log(other.gameObject.tag);
+        if(other.gameObject.tag != "Player" || !isAttacking || stunnedPlayer) return;
+        Debug.Log("StunAttack = "+stunAttack+"; KnockbackAttack = "+knockbackAttack);
+        if(stunAttack){
+            stunnedPlayer = true;
+            GameManager.instance.PlayerRef.ApplyStunAttack(stunLocation, transform);
+            return;
+        }
+        if(knockbackAttack){
+            GameManager.instance.PlayerRef.ApplyKnockback(knockbackForce, transform);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other){
+        if(other.gameObject.layer == LayerMask.NameToLayer("Scenary") ) return;
     }
 }

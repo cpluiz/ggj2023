@@ -46,13 +46,11 @@ public class EnemyMovement : MonoBehaviour
 
     public void StopMovement(){
         if(cannotMove) return;
-        Debug.Log("Teoricamente era pra essa bagaça parar de andar");
         cannotMove = true;
     }
 
     public void ResumeMovement(){
         if(!cannotMove) return;
-        Debug.Log("Teoricamente só liberou pra voltar a andar agora");
         cannotMove = false;
     }
 }
