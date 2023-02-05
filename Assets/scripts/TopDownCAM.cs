@@ -12,10 +12,12 @@ public class TopDownCAM : MonoBehaviour
     public Camera cam;
     public bool LookAt = false;
 
+    void Start(){
+        target = GameManager.instance.PlayerRef.transform;
+    }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         transform.position = Vector3.Lerp(transform.position, target.position + offset, velocidade * Time.deltaTime);
 
         if (LookAt){ 
