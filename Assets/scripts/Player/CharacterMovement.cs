@@ -32,8 +32,9 @@ public class CharacterMovement : MonoBehaviour
         };
         if(y!=0)transform.Rotate(Vector3.up * turnVelocity * Time.deltaTime * y * (isRunning ? runScale : 1));
         if(x!=0){
-            PlayerController.instance.rigidBody.velocity = PlayerController.instance.transform.forward * x * velocity;
-            if(isRunning) PlayerController.instance.rigidBody.velocity *= runScale;
+            PlayerController.instance.rigidBody.velocity = 
+                (PlayerController.instance.transform.forward * x * velocity * (isRunning ? runScale : 1)) // velocidade de movimentação horizontal
+                + new Vector3(0,PlayerController.instance.rigidBody.velocity.y,0); // mantendo a velocidade vertical para não comprometer o pulo
         }
     }
     void LateUpdate(){

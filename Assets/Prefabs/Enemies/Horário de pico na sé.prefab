@@ -39,7 +39,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161571559561482135}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.005
   m_Height: 0.015
@@ -141,7 +141,7 @@ MonoBehaviour:
   stunAttack: 0
   stunLocation: {fileID: 0}
   knockbackAttack: 1
-  knockbackForce: 4
+  knockbackForce: 2
   enemyAnimator: {fileID: 3177107668199290924}
   attack: 0
   isAttacking: 0

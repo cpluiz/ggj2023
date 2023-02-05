@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     //TODO Alterar para script do tipo do player, quando houver
     public PlayerController PlayerRef;
     public TopDownCAM FollowCamRef;
+    public CanvasController CanvasControllerRef;
     void Awake(){
         if(_instance == null){
-            DontDestroyOnLoad(this);
             _instance = this;
             return;
         }
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Start(){
         UpdatePlayerRef();
         UpdateFollowCamRef();
+        UpdateCanvasControllerRef();
     }
 
     public static void UpdatePlayerRef(){
@@ -27,5 +28,9 @@ public class GameManager : MonoBehaviour
     }
     public static void UpdateFollowCamRef(){
         _instance.FollowCamRef = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<TopDownCAM>();
+    }
+
+    public static void UpdateCanvasControllerRef(){
+        _instance.CanvasControllerRef = GameObject.FindGameObjectWithTag("CanvasController").GetComponent<CanvasController>();
     }
 }
