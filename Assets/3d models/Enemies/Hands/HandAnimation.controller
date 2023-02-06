@@ -149,8 +149,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 180, y: 70, z: 0}
+  m_AnyStatePosition: {x: 220, y: 230, z: 0}
   m_EntryPosition: {x: 220, y: 280, z: 0}
-  m_ExitPosition: {x: 720, y: 80, z: 0}
+  m_ExitPosition: {x: 690, y: 280, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -4050065186383984704}

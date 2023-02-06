@@ -40,10 +40,6 @@ public class Enemy : MonoBehaviour{
     }
 
     protected IEnumerator ReenableAttack(){
-        //Se por algum motivo isso for chamado enquanto a animação de ataque ainda estiver rolando,
-        //ABORTAR MISSÃO
-        if(stateInfo.IsName("Attack") && stateInfo.normalizedTime < 1f) yield return null;
-        //Caso contrário, aguarde o intervalo entre ataques para habilitar o próximo
         if(stunnedPlayer){
             GameManager.instance.PlayerRef.UnlockStun();
             stunnedPlayer = false;
@@ -80,13 +76,11 @@ public class Enemy : MonoBehaviour{
                 return true;
         return false;
     }
-    private void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){
         Debug.Log(other.gameObject.name);
     }
-    private void OnTriggerStay(Collider other){
-        Debug.Log(other.gameObject.tag);
+    void OnTriggerStay(Collider other){
         if(other.gameObject.tag != "Player" || !isAttacking || stunnedPlayer) return;
-        Debug.Log("StunAttack = "+stunAttack+"; KnockbackAttack = "+knockbackAttack);
         if(stunAttack){
             stunnedPlayer = true;
             GameManager.instance.PlayerRef.ApplyStunAttack(stunLocation, transform);

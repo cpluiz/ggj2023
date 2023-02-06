@@ -13,7 +13,7 @@ public class CharacterMovement : MonoBehaviour
     private float x,y;
     private bool isRunning;
     [SerializeField]
-    private bool isStuned;
+    private bool isStuned, isShoting;
     [SerializeField]
     private Transform stunnedPosition, stunnedLookAt;
 
@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void FixedUpdate(){
+        if(isShoting) return;
         if(isStuned){
             transform.position = stunnedPosition.position;
             transform.LookAt(stunnedLookAt, Vector3.up);
@@ -38,7 +39,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
     void LateUpdate(){
-        if(isStuned){
+        if(isStuned || isShoting){
             PlayerController.SetAnimationParam("walking", false);
             return;
         }
@@ -60,6 +61,9 @@ public class CharacterMovement : MonoBehaviour
         stunnedPosition = stunPosition;
         stunnedLookAt = lookAt;
         isStuned = true;
+    }
+    public void ShotingStun(bool stun){
+        isShoting = stun;
     }
 
     public void RecoverFromStun(){

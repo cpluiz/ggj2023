@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour{
     [SerializeField] private int lives = 5;
     [SerializeField] private int minLives = 2;
     [SerializeField] [Range(0.5f, 4f)] private float invulnerabilityDelay = 1.5f;
-    [SerializeField] private bool takingDammage;
+    [SerializeField] private bool takingDammage, shooting;
+    [SerializeField] public Transform bowPosition;
+    [SerializeField] public Bow bowRef;
 
     void Awake(){
         if(_instance == null){
@@ -23,6 +25,39 @@ public class PlayerController : MonoBehaviour{
 
     void Start(){
         GameManager.instance.CanvasControllerRef.SetLifes(lives);
+    }
+
+    void FixedUpdate(){
+        if(shooting) return;
+        Shoot(Input.GetButton("Fire1"));
+    }
+
+    void LateUpdate(){
+        if(shooting && animController.AnimationIsFinished("Shot")){
+            shooting = false;
+            animController.SetAnimationParam("attacking", shooting);
+            StartCoroutine(nameof(StopShotting));
+        }
+    }
+
+    private void Shoot(bool shoot){
+        if(!shoot || bowRef.gameObject.activeSelf) return;
+        shooting = true;
+        bowRef.ShowBow(shooting);
+        bowRef.Shoot();
+        animController.SetAnimationParam("attacking", shooting);
+        StartCoroutine(nameof(ShottingStun));
+    }
+
+    private IEnumerator ShottingStun(){
+        movmentController.ShotingStun(true);
+        yield return new WaitForSeconds(0.7f);
+        movmentController.ShotingStun(false);
+    }
+
+    private IEnumerator StopShotting(){
+        yield return new WaitForSeconds(1.5f);
+        bowRef.gameObject.SetActive(shooting);
     }
 
     public static void SetAnimationParam(string parameter, bool value){
