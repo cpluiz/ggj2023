@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour{
     [SerializeField] private int lives = 5;
     [SerializeField] private int minLives = 2;
     [SerializeField] [Range(0.5f, 4f)] private float invulnerabilityDelay = 1.5f;
-    [SerializeField] private bool takingDammage, shooting;
+    [SerializeField] public bool takingDammage, shooting;
     [SerializeField] public Transform bowPosition;
     [SerializeField] public Bow bowRef;
 
@@ -50,9 +50,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     private IEnumerator ShottingStun(){
-        movmentController.ShotingStun(true);
         yield return new WaitForSeconds(0.7f);
-        movmentController.ShotingStun(false);
     }
 
     private IEnumerator StopShotting(){

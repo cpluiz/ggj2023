@@ -25,7 +25,7 @@ public class PlayerAnimationController : MonoBehaviour{
         for(int i = 0; i < playerAnim.layerCount; i++){
             stateInfo = playerAnim.GetCurrentAnimatorStateInfo(i);
             nextStateInfo = playerAnim.GetNextAnimatorStateInfo(i);
-            if(stateInfo.IsName(stateName) || nextStateInfo.IsName(stateName)) return false;
+            if(stateInfo.IsTag(stateName) || nextStateInfo.IsTag(stateName)) return false;
         }
         return !playerAnim.IsInTransition(0);
     }
